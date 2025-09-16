@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduMax Admin – Edit Event</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>EduMax</h1>
+    <p>Your learning platform</p>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Your Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Your Information</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Module Catalogue</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search -->
+  <div class="search-bar">
+    <form>
+      <input type="text" placeholder="Search...">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container mt-4">
+    <h2>Edit Event</h2>
+    <form action="https://students.open.ac.uk/mct/tm252/reflect/reflect.php" method="POST">
+      
+      <!-- Hidden field -->
+      <input type="hidden" name="itemID" value="10002000-3000-123456abcdef">
+
+      <!-- Example pre-filled fields -->
+      <div class="mb-3">
+        <label for="eventTitle" class="form-label">Event Title</label>
+        <input type="text" class="form-control" id="eventTitle" name="eventTitle" value="Sample Event">
+      </div>
+
+      <div class="mb-3">
+        <label for="eventDate" class="form-label">Event Date</label>
+        <input type="date" class="form-control" id="eventDate" name="eventDate" value="2025-09-20">
+      </div>
+
+      <div class="mb-3">
+        <label for="eventDescription" class="form-label">Description</label>
+        <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3">This is a sample description.</textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="bootstrap.min.js"></script>
+</body>
+</html>
 
