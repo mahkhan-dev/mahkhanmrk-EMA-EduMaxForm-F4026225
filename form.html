@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>EduMax – AB101 Taster</title>
+    <title>EduMax Admin – Edit Event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Bootstrap (use your local copies in css/ and js/) -->
+
+    <!-- Bootstrap (use local copies in your repo) -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
+    <!-- Small, valid custom styles to match the attachment look -->
     <style>
-      /* ====== Page look & feel ====== */
       :root {
         --hero-grad: linear-gradient(
           90deg,
@@ -16,10 +17,13 @@
           #ff4ea1 50%,
           #ffb36b 100%
         );
+        --maxw: 72rem;
       }
-      body {
-        background: #fff;
+      .container {
+        max-width: var(--maxw);
       }
+
+      /* Attachment-style hero header */
       .hero {
         background: var(--hero-grad);
         color: #fff;
@@ -32,32 +36,14 @@
         padding-right: 0.9rem;
         padding-left: 0.9rem;
       }
+
+      /* Breadcrumb spacing like a thin rule under nav */
       .breadcrumb {
         background: transparent;
         margin: 1rem 0;
       }
 
-      .resources-band {
-        background: #eef7fb;
-        border: 1px solid #d9e8f2;
-        border-radius: 0.75rem;
-      }
-      .icon-wrap img {
-        width: 96px;
-        height: 96px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 0 0 2px #fff, 0 2px 10px rgba(0, 0, 0, 0.08);
-      }
-
-      footer a {
-        text-decoration: none;
-      }
-      footer a:hover {
-        text-decoration: underline;
-      }
-
-      /* Accessibility: strong focus outline */
+      /* Strong visible focus */
       :focus-visible {
         outline: 3px solid #0d6efd;
         outline-offset: 2px;
@@ -73,11 +59,11 @@
 
     <meta
       name="description"
-      content="EduMax taster page with course intro and resources."
+      content="Prototype admin form to edit an existing event in EduMax."
     />
   </head>
   <body>
-    <!-- 1) HERO HEADER -->
+    <!-- 1) HERO HEADER (matches attachment) -->
     <header class="hero text-center">
       <div class="container">
         <h1 class="display-6 mb-1">EduMax</h1>
@@ -85,7 +71,7 @@
       </div>
     </header>
 
-    <!-- 2) NAVBAR + SEARCH -->
+    <!-- 2) BLACK NAVBAR + SEARCH (present, not required to function) -->
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-dark"
       aria-label="Primary navigation"
@@ -106,9 +92,7 @@
 
         <div id="topnav" class="collapse navbar-collapse">
           <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#">News</a></li>
             <li class="nav-item">
               <a class="nav-link" href="#">Your Courses</a>
@@ -120,7 +104,6 @@
               <a class="nav-link" href="#">Module Catalogue</a>
             </li>
           </ul>
-
           <form class="d-flex" role="search" aria-label="Site search">
             <input
               class="form-control form-control-sm me-2"
@@ -134,98 +117,144 @@
       </div>
     </nav>
 
-    <!-- 3) MAIN CONTENT -->
-    <main class="container my-4">
-      <!-- (Optional) breadcrumb, if you use them elsewhere -->
-      <!-- <nav aria-label="Breadcrumb">
-      <ol class="breadcrumb mb-2">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">AB101</li>
-      </ol>
-    </nav> -->
+    <!-- 3) BREADCRUMB + EDIT FORM (unchanged requirements) -->
+    <main id="main" class="container my-4">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><span>Home (admin)</span></li>
+          <li class="breadcrumb-item"><span>Content Management</span></li>
+          <li class="breadcrumb-item active" aria-current="page">Edit Event</li>
+        </ol>
+      </nav>
 
-      <!-- Course intro -->
-      <h2 class="h4">AB101 - Course Title</h2>
-      <p class="text-muted mb-3">
-        Welcome to the AB101 taster course. Explore your starter materials,
-        including videos, documents, and module guides.
+      <h1 class="h3 mb-3">Edit Learning Event</h1>
+      <p class="text-muted">
+        Prototype layout to demonstrate responsiveness and accessibility.
       </p>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus,
-        debitis quae facilis facere ipsum aperiam. Voluptates aliquam nihil iure
-        ipsa unde omnis temporibus magni? Consequatur voluptatem adipisci
-        nesciunt est exercitationem.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil hic et
-        recusandae rerum aperiam nisi ducimus facere, temporibus alias provident
-        eum aliquid ut architecto. Beatae perferendis alias dolore vel
-        consequuntur.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas corporis
-        a, tempore perspiciatis libero dolorem rerum numquam commodi labore
-        recusandae provident odio voluptates quibusdam delectus cumque quaerat
-        ullam molestiae! Voluptatibus?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos vitae
-        voluptas perspiciatis quis nulla, ea at odit, omnis dicta doloribus
-        dolorem dolore doloremque itaque ipsam sint nostrum isto tempora sed
-        eveniet.
-      </p>
+      <!-- Required: POST to TM252 reflector; hidden itemID; prefilled values; HTML5 inputs -->
+      <form
+        class="needs-validation"
+        method="post"
+        action="https://students.open.ac.uk/mct/tm252/reflect/reflect.php"
+        novalidate
+      >
+        <!-- EXACT hidden field per brief -->
+        <input type="hidden" name="itemID" value="10002000-3000-123456abcdef" />
 
-      <!-- Resources band -->
-      <section class="p-3 p-md-4 rounded-3 my-4 resources-band">
-        <h3 class="h6 mb-3">Your taster module resources:</h3>
-
-        <div class="row g-4 text-center">
-          <!-- Resource 1 -->
-          <div class="col-6 col-md-3">
-            <div class="icon-wrap mx-auto mb-2">
-              <img
-                src="https://via.placeholder.com/96"
-                alt="Unit 1 Videos icon"
-              />
+        <div class="row g-3">
+          <div class="col-12 col-md-8">
+            <label for="title" class="form-label">Event title</label>
+            <input
+              id="title"
+              name="title"
+              type="text"
+              class="form-control"
+              value="Intro to HTML &amp; CSS"
+              aria-describedby="titleHelp"
+              required
+            />
+            <div id="titleHelp" class="form-text">
+              Concise title shown to learners.
             </div>
-            <div class="fw-semibold small">Unit 1 Videos</div>
           </div>
 
-          <!-- Resource 2 -->
-          <div class="col-6 col-md-3">
-            <div class="icon-wrap mx-auto mb-2">
-              <img
-                src="https://via.placeholder.com/96"
-                alt="Unit 1 Resources icon"
-              />
-            </div>
-            <div class="fw-semibold small">Unit 1 Resources</div>
+          <div class="col-12 col-md-4">
+            <label for="category" class="form-label">Category</label>
+            <select id="category" name="category" class="form-select">
+              <option>Workshop</option>
+              <option selected>Lecture</option>
+              <option>Drop-in</option>
+            </select>
           </div>
 
-          <!-- Resource 3 -->
-          <div class="col-6 col-md-3">
-            <div class="icon-wrap mx-auto mb-2">
-              <img src="https://via.placeholder.com/96" alt="Next Unit icon" />
-            </div>
-            <div class="fw-semibold small">Next Unit</div>
+          <div class="col-12 col-md-6">
+            <label for="date" class="form-label">Date</label>
+            <input
+              id="date"
+              name="date"
+              type="date"
+              class="form-control"
+              value="2025-06-27"
+            />
           </div>
 
-          <!-- Resource 4 -->
           <div class="col-6 col-md-3">
-            <div class="icon-wrap mx-auto mb-2">
-              <img
-                src="https://via.placeholder.com/96"
-                alt="Module Reviews icon"
+            <label for="start" class="form-label">Start time</label>
+            <input
+              id="start"
+              name="start"
+              type="time"
+              class="form-control"
+              value="10:00"
+            />
+          </div>
+
+          <div class="col-6 col-md-3">
+            <label for="end" class="form-label">End time</label>
+            <input
+              id="end"
+              name="end"
+              type="time"
+              class="form-control"
+              value="12:00"
+            />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="location" class="form-label">Location</label>
+            <input
+              id="location"
+              name="location"
+              type="text"
+              class="form-control"
+              value="Room 3, Main Building"
+            />
+          </div>
+
+          <div class="col-12">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              class="form-control"
+            >
+Updated outline including CSS basics and exercises.</textarea
+            >
+          </div>
+
+          <fieldset class="col-12" aria-labelledby="publishLegend">
+            <legend id="publishLegend" class="h6">Publishing</legend>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="1"
+                id="published"
+                name="published"
+                checked
               />
+              <label class="form-check-label" for="published"
+                >Visible to students</label
+              >
             </div>
-            <div class="fw-semibold small">Module Reviews</div>
+          </fieldset>
+
+          <div class="col-12 d-flex flex-wrap gap-2">
+            <button class="btn btn-primary" type="submit">Save changes</button>
+            <button class="btn btn-outline-secondary" type="reset">
+              Reset form
+            </button>
+            <a class="btn btn-link" href="#" role="button"
+              >Cancel and return to Events</a
+            >
           </div>
         </div>
-      </section>
+      </form>
     </main>
 
-    <!-- 4) FOOTER -->
+    <!-- 4) SLIM FOOTER (like attachment) -->
     <footer class="border-top py-3">
       <div class="container text-center">
         <p class="small mb-1">
